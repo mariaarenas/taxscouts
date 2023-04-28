@@ -1,8 +1,15 @@
-// components
-import Header from "./components/header/Header";
+import React from "react";
+
+import Header from "./components/Header";
+import SearchList from "./components/SearchList";
 
 function App() {
-  return <Header />;
+  return (
+    <div>
+      <Header />
+      <SearchList />
+    </div>
+  );
 }
 
 export default App;
