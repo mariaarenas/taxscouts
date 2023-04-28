@@ -1,5 +1,8 @@
 import React from "react";
 
+import { useDispatch } from "react-redux";
+import { searchActions } from "../store/index";
+
 import styled from "styled-components";
 
 const Nav = styled.div`
@@ -31,9 +34,14 @@ const Search = styled.input`
 `;
 
 const Header = (props) => {
+  const dispatch = useDispatch();
+
+  const searchHandler = (value) => {
+    dispatch(searchActions.search(value));
+  };
   return (
     <Nav>
-      <Search type="text" />
+      <Search type="text" onChange={(e) => searchHandler(e.target.value)} />
     </Nav>
   );
 };

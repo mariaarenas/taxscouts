@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import styled from "styled-components";
 
@@ -7,7 +8,8 @@ const List = styled.div`
 `;
 
 const SearchList = (props) => {
-  return <List>list of results</List>;
+  const search = useSelector((state) => state.search.search);
+  return <List>{search}</List>;
 };
 
 export default SearchList;
