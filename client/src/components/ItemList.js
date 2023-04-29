@@ -6,7 +6,7 @@ import styled_comp from "styled-components";
 import { styled } from "@mui/material/styles";
 
 // services
-import { fetchData } from "../store/index";
+import { fetchData } from "../store/search-actions";
 
 // components
 import Item from "./Item";
@@ -42,20 +42,28 @@ const PointTheme = styled(Point)(({ theme }) => ({
 
 const ItemList = (props) => {
   const search = useSelector((state) => state.search.search);
+  const items = useSelector((state) => state.items.items);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData());
+    if (search !== "") {
+      dispatch(fetchData());
+    }
   }, [search, dispatch]);
 
   return (
     <>
-      <PointTheme />
-      <ListTheme>
-        {arr.map((index) => (
-          <Item key={index} />
-        ))}
-      </ListTheme>
+      {items.length !== 0 && search !== "" && (
+        <>
+          <PointTheme />
+          <ListTheme>
+            {arr.map((index) => (
+              <Item key={index} />
+            ))}
+          </ListTheme>
+        </>
+      )}
     </>
   );
 };

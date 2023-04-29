@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { searchActions } from "../store/index";
+import { searchActions } from "../store/search-slice";
 
 // MUI
 import AppBar from "@mui/material/AppBar";
@@ -41,6 +41,7 @@ const Header = (props) => {
   const searchHandler = (value) => {
     dispatch(searchActions.search(value));
   };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
