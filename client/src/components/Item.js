@@ -1,5 +1,10 @@
 import React from "react";
+
+// style
 import styled from "styled-components";
+
+// MUI
+import Typography from "@mui/material/Typography";
 
 const ItemDetail = styled.div`
   left: 1004px;
@@ -10,45 +15,23 @@ const ItemDetail = styled.div`
 const Img = styled.div`
   width: 72px;
   height: 72px;
-
   background: #ffffff;
-`;
-
-const Title = styled.div`
-  float: right;
-  background: #c4c4c4;
-  height: 18px;
-  width: 316px;
-  margin-bottom: 17px;
 `;
 
 const DivContainer = styled.div`
   float: right;
-  background: #e3e3e3;
   width: 316px;
-  margin-bottom: 5px;
-  font-size: 12px;
-`;
-
-const Text1 = styled.div`
-  float: left;
-  background: #c4c4c4;
-  height: 9px;
-  width: 163px;
 `;
 
 const Item = (props) => {
   return (
     <ItemDetail>
-      <Title>aaaaaaa</Title>
       <DivContainer>
-        <Text1>bbbbbbbb</Text1>
-      </DivContainer>
-      <DivContainer>
-        <Text1>cccccc </Text1>
-      </DivContainer>
-      <DivContainer>
-        <Text1 style={{ width: "111px" }}>ddd dd</Text1>
+        <Typography variant="h5" component="div">
+          title
+        </Typography>
+        <Typography color="text.secondary">description</Typography>
+        <Typography variant="body2">description</Typography>
       </DivContainer>
       <Img />
     </ItemDetail>
