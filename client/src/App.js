@@ -1,13 +1,13 @@
 import React from "react";
 
 import Header from "./components/Header";
-import SearchList from "./components/SearchList";
+import ItemList from "./components/ItemList";
 
 function App() {
   return (
     <div>
       <Header />
-      <SearchList />
+      <ItemList />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Nav = styled.div`
   position: absolute;
-  width: 100%; /*1440px*/
+  width: 1440px; /*100%*/
   height: 60px;
   left: 0px;
   top: 0px;
