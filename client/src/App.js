@@ -3,6 +3,7 @@ import React from "react";
 // components
 import Header from "./components/Header";
 import ItemList from "./components/ItemList";
+import Home from "./components/Home";
 
 // style
 import { ThemeProvider } from "@mui/material/styles";
@@ -13,6 +14,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header />
       <ItemList />
+      <Home />
     </ThemeProvider>
   );
 }
