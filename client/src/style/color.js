@@ -4,4 +4,5 @@ export const color = {
   error: "#d32f2f",
   black: "#000000",
   gray: "#808080",
+  burlywood: "#deb887",
 };

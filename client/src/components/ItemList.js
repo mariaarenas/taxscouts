@@ -11,12 +11,13 @@ import { fetchData } from "../store/search-actions";
 // components
 import Item from "./Item";
 
-const arr = [1, 2, 3, 4, 5];
+// resources
+import { device } from "../resources/config";
 
 const List = styled_comp.div`
   position: absolute;
   width: 434px;
-  height: 320px;
+  max-height: 320px;
   right: 12px;
   top: 80px;
   overflow: scroll;
@@ -31,7 +32,14 @@ const Point = styled_comp.div`
   position: absolute;
   width: 30px;
   height: 30px;
-  left: 90%;
+  left: 70%;
+  @media ${device.mobile} { 
+    left: 85%;
+  }
+  @media ${device.desktop} { 
+    left: 95%;
+  }
+  
   top: 70px;
   transform: rotate(45deg);
 `;
@@ -54,12 +62,12 @@ const ItemList = (props) => {
 
   return (
     <>
-      {items.length !== 0 && search !== "" && (
+      {search !== "" && items.length !== 0 && (
         <>
           <PointTheme />
           <ListTheme>
-            {arr.map((index) => (
-              <Item key={index} />
+            {items.map((item, index) => (
+              <Item key={index} item={item} />
             ))}
           </ListTheme>
         </>

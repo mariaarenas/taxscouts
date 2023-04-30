@@ -8,7 +8,7 @@ export const theme = createTheme({
       main: color.black,
     },
     secondary: {
-      main: color.golden,
+      main: color.burlywood,
     },
     error: {
       main: color.error,

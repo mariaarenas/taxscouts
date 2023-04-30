@@ -21,11 +21,10 @@ import { styled } from "@mui/material/styles";
 import { languages } from "../translation/i18n";
 
 const Search = styled_comp.input`
-  position: absolute;
+  position: fixed;
   width: 238px;
   height: 42px;
   right: 12px;
-  top: 9px;
   background: #e3e3e3;
   border-radius: 2px;
   padding-left: 10px;
