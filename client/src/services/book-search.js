@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import i18n from "../translation/i18n";
 
 // Define a service using a base URL and expected endpoints and returns a query
 export const bookSearchApi = createApi({
@@ -7,11 +6,11 @@ export const bookSearchApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://openlibrary.org/search.json" }),
   endpoints: (builder) => ({
     getBookByTitleAndLanguage: builder.query({
-      query: (searchValue) => {
-        if (!searchValue) {
+      query: (search) => {
+        if (!search.search) {
           return "";
         } else {
-          return `?q=language:${i18n.language}&title=${searchValue}&limit=10&sort=editions`;
+          return `?q=language:${search.language}&title=${search.search}&limit=10&sort=editions`;
         }
       },
     }),

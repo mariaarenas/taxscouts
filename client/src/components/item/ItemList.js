@@ -13,6 +13,7 @@ import ItemDetails from "./ItemDetails";
 
 // resources
 import { config } from "../../resources/config";
+import i18n from "../../translation/i18n";
 
 // styled-components
 const List = styled_comp.div`
@@ -57,7 +58,10 @@ const ItemList = () => {
     isError,
     isFetching,
     isLoading,
-  } = useGetBookByTitleAndLanguageQuery(search);
+  } = useGetBookByTitleAndLanguageQuery({
+    search: search,
+    language: i18n.language,
+  });
 
   if (isError) return <div>An error has occurred!</div>;
 
