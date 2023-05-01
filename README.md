@@ -27,6 +27,8 @@ To run this project:
 - to run the client:
 
 ```
+$ clone repo
+$ cd taxscouts
 $ cd client
 $ npm install
 $ npm start
@@ -36,6 +38,7 @@ $ npm start
   with the client running, open a new console and
 
 ```
+$ cd taxscouts
 $ cd client
 $ npx cypress open
 ```
