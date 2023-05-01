@@ -40,12 +40,12 @@ const ItemDetails = (props) => {
         <Typography variant="h5" component="div" noWrap>
           {props.item.title}
         </Typography>
-        {props.item.author && props.item.author.length !== 0 && (
+        {props.item.author_name && props.item.author_name.length !== 0 && (
           <Typography variant="subtitle2" color="text.secondary" noWrap>
-            {props.item.author.join(", ")}
+            {props.item.author_name.join(", ")}
           </Typography>
         )}
-        {props.item.amazonList && props.item.amazonList.length !== 0 && (
+        {props.item.id_amazon && props.item.id_amazon.length !== 0 && (
           <div
             style={{
               textOverflow: "ellipsis",
@@ -54,7 +54,7 @@ const ItemDetails = (props) => {
               whiteSpace: "nowrap",
             }}
           >
-            {props.item.amazonList.map((link) => (
+            {props.item.id_amazon.map((link) => (
               <React.Fragment key={link}>
                 {link !== "" && (
                   <ButtonTheme
@@ -73,7 +73,7 @@ const ItemDetails = (props) => {
       <Img>
         <img
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src={props.item.cover}
+          src={`https://covers.openlibrary.org/b/id/${props.item.cover_i}-M.jpg`}
           alt="cover"
         />
       </Img>

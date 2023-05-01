@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
 // style
 import styled_comp from "styled-components";
 import { styled } from "@mui/material/styles";
 
 // services
-import { fetchData } from "../../store/search-actions";
+import { useGetBookByTitleAndLanguageQuery } from "../../services/book-search";
 
 // components
 import ItemDetails from "./ItemDetails";
@@ -51,29 +51,32 @@ const PointTheme = styled(Point)(({ theme }) => ({
 
 const ItemList = () => {
   const search = useSelector((state) => state.search.search);
-  const items = useSelector((state) => state.items.items);
 
-  const dispatch = useDispatch();
+  const {
+    data = [],
+    isError,
+    isFetching,
+    isLoading,
+  } = useGetBookByTitleAndLanguageQuery(search);
 
-  useEffect(() => {
-    // fetch data every time input change only if it is not empty string
-    if (search !== "") {
-      dispatch(fetchData(search));
-    }
-  }, [search, dispatch]);
+  if (isError) return <div>An error has occurred!</div>;
+
+  if (isLoading) return;
 
   return (
     <>
-      {search !== "" && items.length !== 0 && (
-        <>
-          <PointTheme />
-          <ListTheme>
-            {items.map((item, index) => (
-              <ItemDetails key={index} item={JSON.parse(item)} />
-            ))}
-          </ListTheme>
-        </>
-      )}
+      <div className={isFetching ? "posts--disabled" : ""}>
+        {data.docs.length !== 0 && (
+          <>
+            <PointTheme />
+            <ListTheme>
+              {data.docs.map((doc) => (
+                <ItemDetails key={doc.key} item={doc} />
+              ))}
+            </ListTheme>
+          </>
+        )}
+      </div>
     </>
   );
 };
