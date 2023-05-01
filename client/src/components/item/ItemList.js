@@ -12,7 +12,7 @@ import { fetchData } from "../../store/search-actions";
 import ItemDetails from "./ItemDetails";
 
 // resources
-import { device } from "../../resources/config";
+import { config } from "../../resources/config";
 import i18n from "../../translation/i18n";
 
 // styled-components
@@ -35,10 +35,10 @@ const Point = styled_comp.div`
   width: 30px;
   height: 30px;
   left: 70%;
-  @media ${device.mobile} { 
+  @media ${config.device.mobile} { 
     left: 85%;
   }
-  @media ${device.desktop} { 
+  @media ${config.device.desktop} { 
     left: 95%;
   }
   

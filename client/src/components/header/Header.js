@@ -18,7 +18,7 @@ import Menu from "@mui/material/Menu";
 import { languages } from "../../translation/i18n";
 
 const Header = () => {
-  const [i18n] = useTranslation();
+  const [t, i18n] = useTranslation();
 
   const [anchorElLang, setAnchorElLang] = useState(null);
 

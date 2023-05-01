@@ -6,6 +6,9 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import { eng } from "./languages/english";
 import { spa } from "./languages/spanish";
 
+// resources
+import { config } from "../resources/config";
+
 export const languages = [
   {
     label: "English",
@@ -27,7 +30,7 @@ const resources = {
 };
 
 i18n.use(LanguageDetector).use(initReactI18next).init({
-  lng: "eng",
+  lng: config.default_language,
   resources: resources,
 });
 export default i18n;
