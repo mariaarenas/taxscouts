@@ -8,6 +8,7 @@ import { styled } from "@mui/material/styles";
 
 import ItemList from "../item/ItemList";
 
+// styled-components
 const Search = styled_comp.input`
   position: absolute;
   width: 238px;
@@ -25,6 +26,7 @@ const SearchTheme = styled(Search)(({ theme }) => ({
 const SearchEngine = (props) => {
   const dispatch = useDispatch();
 
+  // update input value for searchings
   const searchHandler = (value) => {
     dispatch(searchActions.search(value));
   };

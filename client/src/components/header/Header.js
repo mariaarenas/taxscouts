@@ -17,8 +17,8 @@ import Menu from "@mui/material/Menu";
 // resources
 import { languages } from "../../translation/i18n";
 
-const Header = (props) => {
-  const [t, i18n] = useTranslation();
+const Header = () => {
+  const [i18n] = useTranslation();
 
   const [anchorElLang, setAnchorElLang] = useState(null);
 
@@ -26,6 +26,7 @@ const Header = (props) => {
     setAnchorElLang(null);
   };
 
+  // update language based on user selection
   const handleChangeLanguage = (value) => {
     i18n.changeLanguage(value);
     handleClose();

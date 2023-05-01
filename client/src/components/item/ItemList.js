@@ -15,6 +15,7 @@ import ItemDetails from "./ItemDetails";
 import { device } from "../../resources/config";
 import i18n from "../../translation/i18n";
 
+// styled-components
 const List = styled_comp.div`
   position: absolute;
   width: 434px;
@@ -56,6 +57,7 @@ const ItemList = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // fetch data every time input change only if it is not empty string
     if (search !== "") {
       dispatch(fetchData(search, i18n.language));
     }
@@ -68,7 +70,7 @@ const ItemList = (props) => {
           <PointTheme />
           <ListTheme>
             {items.map((item, index) => (
-              <ItemDetails key={index} item={item} />
+              <ItemDetails key={index} item={JSON.parse(item)} />
             ))}
           </ListTheme>
         </>

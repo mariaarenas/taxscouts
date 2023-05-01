@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 
-const Home = (props) => {
+const Home = () => {
   const [t] = useTranslation();
 
   return (
