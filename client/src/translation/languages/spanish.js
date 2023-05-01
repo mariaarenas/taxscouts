@@ -1,4 +1,4 @@
-export const sp = {
+export const spa = {
   home: {
     title: "Tu gestoria online",
     description:

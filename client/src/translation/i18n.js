@@ -3,31 +3,31 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
 // languages
-import { en } from "./languages/english";
-import { sp } from "./languages/spanish";
+import { eng } from "./languages/english";
+import { spa } from "./languages/spanish";
 
 export const languages = [
   {
     label: "English",
-    value: "en",
+    value: "eng",
   },
   {
     label: "Espanol",
-    value: "sp",
+    value: "spa",
   },
 ];
 
 const resources = {
-  en: {
-    translation: en,
+  eng: {
+    translation: eng,
   },
-  sp: {
-    translation: sp,
+  spa: {
+    translation: spa,
   },
 };
 
 i18n.use(LanguageDetector).use(initReactI18next).init({
-  lng: "en",
+  lng: "eng",
   resources: resources,
 });
 export default i18n;

@@ -13,6 +13,7 @@ import Item from "./Item";
 
 // resources
 import { device } from "../resources/config";
+import i18n from "../translation/i18n";
 
 const List = styled_comp.div`
   position: absolute;
@@ -56,7 +57,7 @@ const ItemList = (props) => {
 
   useEffect(() => {
     if (search !== "") {
-      dispatch(fetchData());
+      dispatch(fetchData(search, i18n.language));
     }
   }, [search, dispatch]);
 

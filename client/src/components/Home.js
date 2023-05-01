@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 
 const Home = (props) => {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <Box sx={{ padding: "50px" }}>
