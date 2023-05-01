@@ -1,29 +1,37 @@
 import React from "react";
 
 // style
-import styled from "styled-components";
+import styled_comp from "styled-components";
+import { styled } from "@mui/material/styles";
 
 // MUI
 import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
+import Button from "@mui/material/Button";
 
 // styled-components
-const ItemDetail = styled.div`
+const ItemDetail = styled_comp.div`
   left: 1004px;
   top: 79px;
   margin: 10px;
 `;
 
-const Img = styled.div`
+const Img = styled_comp.div`
   width: 72px;
   height: 72px;
   background: #ffffff;
 `;
 
-const DivContainer = styled.div`
+const DivContainer = styled_comp.div`
   float: right;
   width: 316px;
 `;
+
+const ButtonTheme = styled(Button)(({ theme }) => ({
+  fontSize: "5px",
+  width: "10px",
+  height: "10px",
+  backgroundColor: theme.palette.primary.light,
+}));
 
 const ItemDetails = (props) => {
   return (
@@ -37,13 +45,30 @@ const ItemDetails = (props) => {
             {props.item.author.join(", ")}
           </Typography>
         )}
-        {props.item.id_amazon &&
-          props.item.id_amazon.length !== 0 &&
-          props.item.id_amazon.map((link) => (
-            <Typography variant="body2" key={link} noWrap>
-              <Link href={`https://www.amazon.co.uk/dp/${link}`}>{link}</Link>
-            </Typography>
-          ))}
+        {props.item.amazonList && props.item.amazonList.length !== 0 && (
+          <div
+            style={{
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+              display: "flex",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {props.item.amazonList.map((link) => (
+              <>
+                {link !== "" && (
+                  <ButtonTheme
+                    variant="contained"
+                    href={`https://www.amazon.co.uk/dp/${link}`}
+                  >
+                    {link}
+                  </ButtonTheme>
+                )}
+                &nbsp;
+              </>
+            ))}
+          </div>
+        )}
       </DivContainer>
       <Img>
         <img
