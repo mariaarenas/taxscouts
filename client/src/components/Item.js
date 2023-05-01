@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 // MUI
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 
 const ItemDetail = styled.div`
   left: 1004px;
@@ -28,10 +29,20 @@ const Item = (props) => {
     <ItemDetail>
       <DivContainer>
         <Typography variant="h5" component="div">
-          title
+          {props.item.title}
         </Typography>
-        <Typography color="text.secondary">description</Typography>
-        <Typography variant="body2">description</Typography>
+        {props.item.author_name && props.item.author_name.length !== 0 && (
+          <Typography color="text.secondary">
+            {props.item.author_name[0]}
+          </Typography>
+        )}
+        {props.item.id_amazon &&
+          props.item.id_amazon.length !== 0 &&
+          props.item.id_amazon.map((link) => (
+            <Typography variant="body2" key={link}>
+              <Link href={`https://www.amazon.co.uk/dp/${link}`}>{link}</Link>
+            </Typography>
+          ))}
       </DivContainer>
       <Img />
     </ItemDetail>

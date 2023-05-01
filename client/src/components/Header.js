@@ -21,7 +21,7 @@ import { styled } from "@mui/material/styles";
 import { languages } from "../translation/i18n";
 
 const Search = styled_comp.input`
-  position: fixed;
+  position: absolute;
   width: 238px;
   height: 42px;
   right: 12px;
