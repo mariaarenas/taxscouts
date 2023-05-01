@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { config } from "../resources/config";
 
 // Define a service using a base URL and expected endpoints and returns a query
 export const bookSearchApi = createApi({
@@ -10,7 +11,7 @@ export const bookSearchApi = createApi({
         if (!search.search) {
           return "";
         } else {
-          return `?q=language:${search.language}&title=${search.search}&limit=10&sort=editions`;
+          return `?q=language:${search.language}&title=${search.search}&limit=${config.default_limit}&sort=editions`;
         }
       },
     }),

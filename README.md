@@ -48,7 +48,7 @@ Once the window test is open choose E2E Testing tab. Then choose a browser and c
 ## Features
 
 - Translate icon with internationalisation implemented (English-Spanish)
-- Search box to be able to filter by book title (with a limit of 10, sorted by editions and filter by language)
+- Search box to be able to filter by book title (with a customise limit of 10, sorted by editions and filter by language)
 - Each item contains links to amazon when available
 - E2E testing with cypress.
 - Manage of state with Redux-toolkit to update search value and items displayed
