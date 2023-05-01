@@ -2,16 +2,20 @@ import { Book } from "../model/Book";
 import { itemsActions } from "./items-slice";
 import axios from "axios";
 
-export const fetchData = (searchValue, lang) => {
+// resources
+import { config } from "../resources/config";
+import i18n from "../translation/i18n";
+
+export const fetchData = (searchValue) => {
   return async (dispatch) => {
     const getItems = async () => {
       // retrieve records based on input value and language sorted by edition
       const response = await axios.get(
-        `https://openlibrary.org/search.json?q=language:${lang}&title=${searchValue}&limit=10&sort=editions`
+        `https://openlibrary.org/search.json?q=language:${i18n.language}&title=${searchValue}&limit=${config.default_limit}&sort=editions`
       );
 
       /*const response = await axios.get(
-        "https://openlibrary.org/search.json?q=the+lord+of+the+rings&limit=10"
+        "https://openlibrary.org/search.json?q=the+lord+of+the+rings&limit=2"
       );*/
 
       const items = await response.data;

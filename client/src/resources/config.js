@@ -13,4 +13,5 @@ export const config = {
     desktop: `(min-width: ${size.desktop})`,
   },
   default_language: "eng",
+  default_limit: 10,
 };

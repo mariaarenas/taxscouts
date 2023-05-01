@@ -13,7 +13,6 @@ import ItemDetails from "./ItemDetails";
 
 // resources
 import { config } from "../../resources/config";
-import i18n from "../../translation/i18n";
 
 // styled-components
 const List = styled_comp.div`
@@ -50,7 +49,7 @@ const PointTheme = styled(Point)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.light,
 }));
 
-const ItemList = (props) => {
+const ItemList = () => {
   const search = useSelector((state) => state.search.search);
   const items = useSelector((state) => state.items.items);
 
@@ -59,7 +58,7 @@ const ItemList = (props) => {
   useEffect(() => {
     // fetch data every time input change only if it is not empty string
     if (search !== "") {
-      dispatch(fetchData(search, i18n.language));
+      dispatch(fetchData(search));
     }
   }, [search, dispatch]);
 

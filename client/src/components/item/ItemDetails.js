@@ -55,7 +55,7 @@ const ItemDetails = (props) => {
             }}
           >
             {props.item.amazonList.map((link) => (
-              <>
+              <React.Fragment key={link}>
                 {link !== "" && (
                   <ButtonTheme
                     variant="contained"
@@ -65,7 +65,7 @@ const ItemDetails = (props) => {
                   </ButtonTheme>
                 )}
                 &nbsp;
-              </>
+              </React.Fragment>
             ))}
           </div>
         )}
