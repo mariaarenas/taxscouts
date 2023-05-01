@@ -23,5 +23,9 @@ export const theme = createTheme({
       color: color.gray,
       fontSize: "20px",
     },
+    h5: {
+      color: color.golden,
+      fontSize: "18px",
+    },
   },
 });

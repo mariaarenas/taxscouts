@@ -6,14 +6,14 @@ import styled_comp from "styled-components";
 import { styled } from "@mui/material/styles";
 
 // services
-import { fetchData } from "../store/search-actions";
+import { fetchData } from "../../store/search-actions";
 
 // components
-import Item from "./Item";
+import ItemDetails from "./ItemDetails";
 
 // resources
-import { device } from "../resources/config";
-import i18n from "../translation/i18n";
+import { device } from "../../resources/config";
+import i18n from "../../translation/i18n";
 
 const List = styled_comp.div`
   position: absolute;
@@ -68,7 +68,7 @@ const ItemList = (props) => {
           <PointTheme />
           <ListTheme>
             {items.map((item, index) => (
-              <Item key={index} item={item} />
+              <ItemDetails key={index} item={item} />
             ))}
           </ListTheme>
         </>

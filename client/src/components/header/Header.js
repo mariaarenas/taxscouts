@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { searchActions } from "../store/search-slice";
 import { useTranslation } from "react-i18next";
+
+// components
+import SearchEngine from "../search/SearchEngine";
 
 // MUI
 import GTranslateIcon from "@mui/icons-material/GTranslate";
@@ -13,29 +14,10 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 
-// style
-import styled_comp from "styled-components";
-import { styled } from "@mui/material/styles";
-
 // resources
-import { languages } from "../translation/i18n";
-
-const Search = styled_comp.input`
-  position: absolute;
-  width: 238px;
-  height: 42px;
-  right: 12px;
-  background: #e3e3e3;
-  border-radius: 2px;
-  padding-left: 10px;
-`;
-
-const SearchTheme = styled(Search)(({ theme }) => ({
-  ...theme.typography.h4,
-}));
+import { languages } from "../../translation/i18n";
 
 const Header = (props) => {
-  const dispatch = useDispatch();
   const [t, i18n] = useTranslation();
 
   const [anchorElLang, setAnchorElLang] = useState(null);
@@ -47,10 +29,6 @@ const Header = (props) => {
   const handleChangeLanguage = (value) => {
     i18n.changeLanguage(value);
     handleClose();
-  };
-
-  const searchHandler = (value) => {
-    dispatch(searchActions.search(value));
   };
 
   return (
@@ -80,11 +58,7 @@ const Header = (props) => {
             ))}
           </Menu>
           <Typography variant="h6">Taxscouts</Typography>
-
-          <SearchTheme
-            type="text"
-            onChange={(e) => searchHandler(e.target.value)}
-          />
+          <SearchEngine />
         </Toolbar>
       </AppBar>
     </Box>

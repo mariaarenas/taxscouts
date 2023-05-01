@@ -24,7 +24,7 @@ const DivContainer = styled.div`
   width: 316px;
 `;
 
-const Item = (props) => {
+const ItemDetails = (props) => {
   return (
     <ItemDetail>
       <DivContainer>
@@ -32,7 +32,7 @@ const Item = (props) => {
           {props.item.title}
         </Typography>
         {props.item.author_name && props.item.author_name.length !== 0 && (
-          <Typography color="text.secondary">
+          <Typography variant="subtitle2" color="text.secondary">
             {props.item.author_name[0]}
           </Typography>
         )}
@@ -49,4 +49,4 @@ const Item = (props) => {
   );
 };
 
-export default Item;
+export default ItemDetails;

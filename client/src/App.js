@@ -1,9 +1,8 @@
 import React from "react";
 
 // components
-import Header from "./components/Header";
-import ItemList from "./components/ItemList";
-import Home from "./components/Home";
+import Header from "./components/header/Header";
+import Home from "./components/home/Home";
 
 // style
 import { ThemeProvider } from "@mui/material/styles";
@@ -13,7 +12,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <ItemList />
       <Home />
     </ThemeProvider>
   );
