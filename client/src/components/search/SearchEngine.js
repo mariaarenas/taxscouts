@@ -34,6 +34,7 @@ const SearchEngine = (props) => {
   return (
     <>
       <SearchTheme
+        id="search"
         type="text"
         onChange={(e) => searchHandler(e.target.value)}
       />
